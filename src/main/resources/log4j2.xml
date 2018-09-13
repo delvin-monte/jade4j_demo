@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <!-- Console Appender -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+        <!-- File Appender -->
+        <File name="File" fileName="/tmp/jade4j_demo.log" class="org.apache.log4j.rolling.RollingFileAppender">
+            <PatternLayout pattern="%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n" />
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.example" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <Logger name="org.springframework.boot.autoconfigure.security" level="info" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <Logger name="org.springframework.boot" level="warn" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <Logger name="org.springframework.cloud.config" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <Logger name="org.springframework.beans" level="warn" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <Logger name="org.springframework.context" level="warn" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <Logger name="org.springframework.jmx" level="warn" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <Logger name="org.springframework.ui" level="warn" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <Logger name="org.springframework.web.servlet.view" level="warn" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <Logger name="org.springframework.web.servlet" level="warn" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <Logger name="org.springframework.core.env" level="info" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <Logger name="org.springframework.core" level="warn" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <Logger name="org.hibernate" level="warn" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <Logger name="org.eclipse.jetty.websocket" level="error" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <Logger name="org.eclipse.jetty" level="warn" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <Logger name="de.neuland.jade4j" level="warn" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <Root level="error">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Root>
+    </Loggers>
+</Configuration>

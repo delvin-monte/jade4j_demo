@@ -1,0 +1,4 @@
+application:
+  templates_directory: file:/Users/btano/Projects/workspace/jade4j_demo/src/main/resources/templates/
+  template_pretty_print: true
+  template_caching: false

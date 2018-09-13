@@ -1,0 +1,14 @@
+# IDE files
+.idea/
+settings.gradle
+
+# Gradle build files
+.gradle/
+build/
+gradle/
+gradlew
+gradlew.bat
+out/
+
+# Auto-generated files
+**/generated/
