@@ -22,7 +22,6 @@ import java.io.Reader;
  * Based on <a href="https://github.com/neuland/jade4j">jade4j</a>.
  */
 @Configuration
-@EnableWebMvc
 public class JadeTemplateConfiguration implements WebMvcConfigurer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JadeTemplateConfiguration.class);

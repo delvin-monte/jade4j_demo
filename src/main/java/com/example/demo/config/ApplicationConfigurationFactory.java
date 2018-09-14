@@ -17,7 +17,7 @@ public class ApplicationConfigurationFactory {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ApplicationConfigurationFactory.class);
 
-    public static final String DEFAULT_BASE_URL = "http://locahost:8080";
+    public static final String DEFAULT_BASE_URL = "http://localhost:8080";
 
     private final ApplicationConfiguration.Builder configBuilder;
 
@@ -54,9 +54,9 @@ public class ApplicationConfigurationFactory {
         configBuilder.projectId(projectId);
     }
 
-    @Value("${GOOGLE_APPLICATION_CREDENTIALS:}")
-    void setApplicationCredentials(String applicationCredentials) {
-        configBuilder.applicationCredentials(applicationCredentials);
+    @Value("${applications.static_url:}")
+    void setStaticUrl(String staticUrl) {
+        configBuilder.staticUrl(staticUrl);
     }
 
     @Value("${application.templates_directory:}")

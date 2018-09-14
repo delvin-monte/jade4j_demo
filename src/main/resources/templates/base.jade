@@ -1,8 +1,31 @@
+doctype html
 html
+  - var bodyAttributes = bodyData.bodyAttributes
+  - var contentAttributes = bodyData.contentAttributes
+  - var footerAttributes = bodyData.footerAttributes
+  block templateVariables
+
   head
-    title My Site - #{title}
-    block scripts
-      script(src='/jquery-minified.js')
-  body
-    block content
-    block foot
+    block head
+      title
+        block pageTitle
+          | #{pageTitle}
+
+      block commonScripts
+        script(src='!{templateHelper.staticUrl("demo.js")}')
+      block pageScripts
+
+  body&attributes(bodyAttributes)
+    block body
+      div&attributes(contentAttributes)
+        <!-- ********* BEGIN CONTENT ********* -->
+        block content
+        <!-- ********* END CONTENT ********* -->
+
+      div&attributes(footerAttributes)
+        <!-- ********* BEGIN FOOTER ********* -->
+        block footer
+          | Powered by
+          b Jade4j
+          | .
+        <!-- ********* END FOOTER ********* -->

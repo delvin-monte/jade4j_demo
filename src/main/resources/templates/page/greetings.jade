@@ -1,13 +1,21 @@
 extends /base.jade
 
-block scripts
-  script(src='/jquery.js')
-  script(src='/jade4j_demo.js')
+block templateVariables
+  - var bodyAttributes = {'class': 'page-a', 'id': 'greetings'}
+  - var footerAttributes = templateHelper.copyMapAndUpdate(footerAttributes, {'class': footerAttributes.class + ' extra', 'id': 'footer-greetings'})
+
+block pageTitle
+  | This is how we greet!
+
+block pageScripts
+  script(src='!{templateHelper.staticUrl("lib/jade4j_demo.js")}')
 
 block content
   h1 #{title}
-  div
-    | Hello
-    | #{name}!
-    | !{BASE_URL}
-    p= STATIC_URL
+  div.abc.def#xyz
+    table(border=1)
+      tr
+        th(colspan=2, align="center") Message
+      tr
+        td Hello...
+        td #{name}!
