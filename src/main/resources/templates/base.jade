@@ -1,8 +1,8 @@
 doctype html
 html
-  - var bodyAttributes = bodyData.bodyAttributes
-  - var contentAttributes = bodyData.contentAttributes
-  - var footerAttributes = bodyData.footerAttributes
+  - var bodyAttributes = pageData.bodyAttributes
+  - var contentAttributes = pageData.contentAttributes
+  - var footerAttributes = pageData.footerAttributes
   block templateVariables
 
   head
@@ -11,9 +11,8 @@ html
         block pageTitle
           | #{pageTitle}
 
-      block commonScripts
-        script(src='!{templateHelper.staticUrl("demo.js")}')
       block pageScripts
+        script(src='!{templateHelper.staticUrl("demo.js")}')
 
   body&attributes(bodyAttributes)
     block body

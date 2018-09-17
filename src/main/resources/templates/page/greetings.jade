@@ -2,12 +2,12 @@ extends /base.jade
 
 block templateVariables
   - var bodyAttributes = {'class': 'page-a', 'id': 'greetings'}
-  - var footerAttributes = templateHelper.copyMapAndUpdate(footerAttributes, {'class': footerAttributes.class + ' extra', 'id': 'footer-greetings'})
+  - var footerAttributes = templateHelper.copyModelAndUpdate(footerAttributes, {'class': footerAttributes.class + ' extra', 'id': 'footer-greetings'})
 
 block pageTitle
   | This is how we greet!
 
-block pageScripts
+append pageScripts
   script(src='!{templateHelper.staticUrl("lib/jade4j_demo.js")}')
 
 block content

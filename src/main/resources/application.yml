@@ -1,4 +1,12 @@
 application:
-  templates_directory: file:/Users/btano/Projects/workspace/jade4j_demo/src/main/resources/templates/
-  template_pretty_print: true
-  template_caching: false
+  templates-directory: file:/Users/btano/Projects/workspace/jade4j_demo/src/main/resources/templates/
+  template-pretty_print: true
+  template-caching: false
+
+template-pages:
+  body-attributes:
+    class: main standard
+  content-attributes:
+    class: content
+  footer-attributes:
+    class: footer

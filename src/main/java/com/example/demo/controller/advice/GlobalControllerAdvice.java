@@ -1,16 +1,17 @@
 package com.example.demo.controller.advice;
 
-import static com.example.demo.config.ApplicationConfigurationFactory.DEFAULT_BASE_URL;
-
+import com.example.demo.config.TemplateConfiguration;
 import com.example.demo.util.TemplateHelper;
 
 import com.google.common.base.Preconditions;
-import com.google.common.collect.ImmutableMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import javax.annotation.PostConstruct;
 import java.util.Map;
 
 
@@ -18,17 +19,11 @@ import java.util.Map;
 @Order(100)
 public class GlobalControllerAdvice {
 
-    public static final ImmutableMap<String, String> PAGE_ATTRIBUTES = ImmutableMap.of(
-            "baseUrl", DEFAULT_BASE_URL
-    );
-
-    public static final ImmutableMap<String, Map<String, String>> BODY_ATTRIBUTES = ImmutableMap.of(
-            "bodyAttributes", ImmutableMap.of("class", "main standard"),
-            "contentAttributes", ImmutableMap.of("class", "content"),
-            "footerAttributes", ImmutableMap.of("class", "footer")
-    );
+    private static final Logger LOGGER = LoggerFactory.getLogger(GlobalControllerAdvice.class);
 
     private final TemplateHelper templateHelper;
+
+    private final TemplateConfiguration templateConfiguration;
 
     /**
      * Creates an instance of GlobalControllerAdvice.
@@ -36,19 +31,21 @@ public class GlobalControllerAdvice {
      * @param templateHelper The {@link com.example.demo.util.TemplateHelper template helper}
      */
     @Autowired
-    GlobalControllerAdvice(TemplateHelper templateHelper) {
+    GlobalControllerAdvice(TemplateHelper templateHelper, TemplateConfiguration templateConfiguration) {
         Preconditions.checkNotNull(templateHelper, "Template helper cannot be null.");
+        Preconditions.checkNotNull(templateConfiguration, "Template configuration cannot be null.");
         this.templateHelper = templateHelper;
+        this.templateConfiguration = templateConfiguration;
+    }
+
+    @PostConstruct
+    public void init() {
+        LOGGER.debug("init() templateConfiguration: {}", templateConfiguration);
     }
 
     @ModelAttribute("pageData")
-    public Map<String, String> defaultPageAttributes() {
-        return PAGE_ATTRIBUTES;
-    }
-
-    @ModelAttribute("bodyData")
-    public Map<String, Map<String, String>> defaultBodyAttributes() {
-        return BODY_ATTRIBUTES;
+    public Map<String, Map<String, String>> defaultPageAttributes() {
+        return templateConfiguration.pageAttributes();
     }
 
     @ModelAttribute("templateHelper")

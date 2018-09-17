@@ -54,22 +54,22 @@ public class ApplicationConfigurationFactory {
         configBuilder.projectId(projectId);
     }
 
-    @Value("${applications.static_url:}")
+    @Value("${applications.static-url:}")
     void setStaticUrl(String staticUrl) {
         configBuilder.staticUrl(staticUrl);
     }
 
-    @Value("${application.templates_directory:}")
+    @Value("${application.templates-directory:}")
     void setTemplatesDirectory(String templatesDirectory) {
         configBuilder.templatesDirectory(templatesDirectory);
     }
 
-    @Value("${application.template_pretty_print:false}")
+    @Value("${application.template-pretty-print:false}")
     void setTemplatePrettyPrint(boolean templatePrettyPrint) {
         configBuilder.templatePrettyPrint(templatePrettyPrint);
     }
 
-    @Value("${application.template_caching:true}")
+    @Value("${application.template-caching:true}")
     void setTemplateCaching(boolean templateCaching) {
         configBuilder.templateCaching(templateCaching);
     }

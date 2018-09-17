@@ -83,10 +83,10 @@ public final class TemplateHelper {
      *
      * @return A <b>mutable</b>copy of the source
      */
-    public Map<Object, Object> copyMap(@Nullable Map<Object, Object> source) {
+    public Map<String, Object> copyModel(@Nullable Map<String, Object> source) {
         if (source != null) {
             try {
-                final Map<Object, Object> target = new HashMap(source.size());
+                final Map<String, Object> target = new HashMap<>(source.size());
                 target.putAll(source);
                 return target;
             } catch (Exception exception) {
@@ -104,9 +104,9 @@ public final class TemplateHelper {
      *
      * @return A <b>mutable</b>copy of the source
      */
-    public Map<Object, Object> copyMapAndUpdate(
-            @Nullable Map<Object, Object> source, @Nullable Map<Object, Object> updates) {
-        final Map<Object, Object> target = copyMap(source);
+    public Map<String, Object> copyModelAndUpdate(
+            @Nullable Map<String, Object> source, @Nullable Map<String, Object> updates) {
+        final Map<String, Object> target = copyModel(source);
         if (updates != null) {
             target.putAll(updates);
         }
