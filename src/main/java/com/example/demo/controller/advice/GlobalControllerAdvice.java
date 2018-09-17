@@ -15,6 +15,7 @@ import javax.annotation.PostConstruct;
 import java.util.Map;
 
 
+/** Adds data to the model for all requests. */
 @ControllerAdvice
 @Order(100)
 public class GlobalControllerAdvice {
@@ -29,6 +30,7 @@ public class GlobalControllerAdvice {
      * Creates an instance of GlobalControllerAdvice.
      *
      * @param templateHelper The {@link com.example.demo.util.TemplateHelper template helper}
+     * @param templateConfiguration The {@link com.example.demo.config.TemplateConfiguration template configuration}
      */
     @Autowired
     GlobalControllerAdvice(TemplateHelper templateHelper, TemplateConfiguration templateConfiguration) {
@@ -43,11 +45,13 @@ public class GlobalControllerAdvice {
         LOGGER.debug("init() templateConfiguration: {}", templateConfiguration);
     }
 
+    /** Adds the page attributes to the model. */
     @ModelAttribute("pageData")
     public Map<String, Map<String, String>> defaultPageAttributes() {
         return templateConfiguration.pageAttributes();
     }
 
+    /** Adds, to the model, an object which contains functions that can be used in the templates. */
     @ModelAttribute("templateHelper")
     public TemplateHelper templateHelper() {
         return templateHelper;
