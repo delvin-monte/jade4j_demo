@@ -7,15 +7,15 @@ block templateVariables
 block pageTitle
   | This is how we greet!
 
-append pageScripts
-  script(src='!{templateHelper.staticUrl("lib/jade4j_demo.js")}')
-
 block content
   h1 #{title}
-  div.abc.def#xyz
+  div#app
     table(border=1)
       tr
         th(colspan=2, align="center") Message
       tr
         td Hello...
         td #{name}!
+
+append bottomScripts
+  script(src='!{templateHelper.staticUrl("lib/jade4j_demo.js")}')

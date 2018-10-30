@@ -1,5 +1,6 @@
 doctype html
 html
+  - var javascriptLibs = pageData.javascriptLibs
   - var bodyAttributes = pageData.bodyAttributes
   - var contentAttributes = pageData.contentAttributes
   - var footerAttributes = pageData.footerAttributes
@@ -28,3 +29,6 @@ html
           b jade4j
           | .
         <!-- ********* END FOOTER ********* -->
+
+      block bottomScripts
+        script(src='!{javascriptLibs.vueJS}')

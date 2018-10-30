@@ -34,16 +34,16 @@ targetCompatibility = 1.8
 ext {
     autovalueVersion = '1.6.2'
     guavaVersion = '20.0'
+    hazelcastVersion = '3.10.5'
     jade4jVersion = '1.2.7'
     lombokVersion = '1.18.2'
-    springcloudconfigVersion = '2.0.1.RELEASE'
+    springcloudconfigVersion = '2.0.2.RELEASE'
 }
 
 configurations {
     compile.exclude module: 'spring-boot-starter-tomcat'
     compile.exclude module: 'spring-boot-starter-logging'
 }
-
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
@@ -55,6 +55,7 @@ dependencies {
     compile("com.google.guava:guava:${guavaVersion}")
     compile("com.google.auto.value:auto-value-annotations:${autovalueVersion}")
     compile("com.google.code.findbugs:jsr305:3.0.2")
+    compile("com.hazelcast:hazelcast:${hazelcastVersion}")
 
     compileOnly("com.google.auto.value:auto-value:${autovalueVersion}")
     compileOnly("org.projectlombok:lombok:${lombokVersion}")

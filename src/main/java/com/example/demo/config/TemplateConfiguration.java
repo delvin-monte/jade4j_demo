@@ -25,6 +25,9 @@ import java.util.Map;
 @ConfigurationProperties(prefix="template-pages")
 public class TemplateConfiguration {
     @Setter(AccessLevel.PACKAGE)
+    private Map<String, String> javascriptLibs = new HashMap<>();
+
+    @Setter(AccessLevel.PACKAGE)
     private Map<String, String> bodyAttributes = new HashMap<>();
 
     @Setter(AccessLevel.PACKAGE)
@@ -40,6 +43,7 @@ public class TemplateConfiguration {
     @PostConstruct
     public void init() {
         pageAttributes = ImmutableMap.of(
+                "javascriptLibs", ImmutableMap.copyOf(getJavascriptLibs()),
                 "bodyAttributes", ImmutableMap.copyOf(getBodyAttributes()),
                 "contentAttributes", ImmutableMap.copyOf(getContentAttributes()),
                 "footerAttributes", ImmutableMap.copyOf(getFooterAttributes())

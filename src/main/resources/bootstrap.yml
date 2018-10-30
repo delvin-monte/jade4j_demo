@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: jade4j-demo
+
+  profiles:
+    active: development

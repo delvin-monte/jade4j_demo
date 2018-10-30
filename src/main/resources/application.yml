@@ -1,9 +1,11 @@
 application:
-  templates-directory: file:/Users/btano/Projects/workspace/jade4j_demo/src/main/resources/templates/
+  # templates-directory: file:/Projects/workspace/jade4j_demo/templates/
   template-pretty_print: true
   template-caching: false
 
 template-pages:
+  javascript-libs:
+    vueJS: https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js
   body-attributes:
     class: main standard
   content-attributes:

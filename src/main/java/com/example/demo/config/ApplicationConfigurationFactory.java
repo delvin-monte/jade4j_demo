@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,6 +13,7 @@ import javax.annotation.PostConstruct;
 
 
 @Configuration
+@EnableCaching
 @ConfigurationProperties
 public class ApplicationConfigurationFactory {
 
@@ -54,12 +56,12 @@ public class ApplicationConfigurationFactory {
         configBuilder.projectId(projectId);
     }
 
-    @Value("${applications.static-url:}")
+    @Value("${application.static-url:static}")
     void setStaticUrl(String staticUrl) {
         configBuilder.staticUrl(staticUrl);
     }
 
-    @Value("${application.templates-directory:}")
+    @Value("${application.templates-directory:classpath:/templates/}")
     void setTemplatesDirectory(String templatesDirectory) {
         configBuilder.templatesDirectory(templatesDirectory);
     }
