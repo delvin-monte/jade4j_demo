@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 
-
 @Configuration
 @EnableCaching
 @ConfigurationProperties
@@ -51,7 +50,7 @@ public class ApplicationConfigurationFactory {
         return applicationConfiguration;
     }
 
-    @Value("${PROJECT_ID}")
+    @Value("${PROJECT_ID:my-demo-id}")
     void setProjectId(String projectId) {
         configBuilder.projectId(projectId);
     }

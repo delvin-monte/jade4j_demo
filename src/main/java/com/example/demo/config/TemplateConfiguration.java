@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * Contains the properties/configuration to support the template pages.
  *
- * See https://projectlombok.org/.
+ * See https://projectlombok.org.
  */
 @Data
 @NoArgsConstructor

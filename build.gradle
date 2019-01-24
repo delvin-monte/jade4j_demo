@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.5.RELEASE'
+        springBootVersion = '2.1.2.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -10,9 +10,9 @@ buildscript {
     }
 }
 
-plugins {
-    id "net.ltgt.apt-idea" version "0.18"
-}
+//plugins {
+//    id "net.ltgt.apt-idea" version "0.18"
+//}
 
 repositories {
     mavenCentral()
@@ -21,10 +21,11 @@ repositories {
 }
 
 group 'com.example'
-version '1.0-SNAPSHOT'
+version '1.0.0'
 
 apply plugin: 'java'
-apply plugin: 'idea'
+//apply plugin: 'idea'
+apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
@@ -61,7 +62,7 @@ dependencies {
     compileOnly("org.projectlombok:lombok:${lombokVersion}")
 
     annotationProcessor "com.google.auto.value:auto-value:${autovalueVersion}"
-    apt "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
     runtime('org.springframework.boot:spring-boot-devtools')
 
@@ -75,5 +76,4 @@ dependencies {
 
 bootJar {
     baseName = 'jade4j-demo'
-    version =  '0.1.0'
 }

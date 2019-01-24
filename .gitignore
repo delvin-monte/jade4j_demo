@@ -1,5 +1,11 @@
 # IDE files
 .idea/
+.settings/
+.apt_generated/
+bin/
+.classpath
+.project
+.factorypath
 settings.gradle
 
 # Gradle build files
